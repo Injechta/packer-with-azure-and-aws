@@ -73,7 +73,7 @@ Le fichier `index.html` est une page web simple qui fournit des informations sur
 
 ## Construction de l'Image avec Packer
 
-Pour construire l'image avec Packer, assurez-vous d'être dans le répertoire de travail où se trouve votre fichier image.json. Exécutez ensuite la commande suivante :
+Pour construire l'image avec Packer, assurez-vous d'être dans le répertoire de travail où se trouve votre fichier "image.json". Exécutez ensuite la commande suivante :
 
 ```shell
 sudo packer build image.json
