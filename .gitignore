@@ -1,0 +1,33 @@
+# Fichiers de configuration locaux
+*.tfvars
+*.tfvars.json
+
+# Fichiers de plan Terraform
+*.tfplan
+*.tfplan.*
+
+# Fichiers de verrouillage
+.terraform.lock.hcl
+
+# Répertoires .terraform peuvent contenir des fichiers sensibles
+**/.terraform/*
+
+# Fichiers d'état local
+*.tfstate
+*.tfstate.*
+
+# Fichiers de sauvegarde d'état
+*.tfstate.backup
+
+# Fichiers de sortie
+*.tfout
+
+# Fichiers de logs
+crash.log
+
+# Fichiers de configuration de l'IDE
+.terraformrc
+terraform.rc
+
+# Fichiers spécifiques aux systèmes Mac
+.DS_Store

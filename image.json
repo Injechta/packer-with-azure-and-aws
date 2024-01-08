@@ -1,0 +1,50 @@
+{
+  "builders": [{
+    "type": "azure-arm",
+    "client_id": "fa4e2627-3584-4332-8f64-544806dde1b8",
+    "client_secret": "h088Q~4xCc3zV0dq3a~DCIK5hEE8E0ofywTZscnh",
+    "subscription_id": "c56aea2c-50de-4adc-9673-6a8008892c21",
+    "tenant_id": "16763265-1998-4c96-826e-c04162b1e041",
+    "build_resource_group_name": "b3-gr3",
+    "managed_image_resource_group_name": "b3-gr3",
+    "managed_image_name": "b3-gr3_linux_image",
+    "os_type": "Linux",
+    "image_publisher": "Canonical",
+    "image_offer": "0001-com-ubuntu-server-jammy",
+    "image_sku": "22_04-lts",
+    "azure_tags": {
+      "dept": "Engineering",
+      "task": "Image deployment"
+    },
+    "vm_size": "Standard_DS2_v2"
+  }],
+
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo apt-get update",
+        "sudo apt-get install -y nginx",
+        "sudo systemctl start nginx"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "index.html",
+      "destination": "/tmp/index.html"
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sudo mv /tmp/index.html /var/www/html/index.html",
+        "sudo chown www-data:www-data /var/www/html/index.html"
+      ]
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sudo systemctl enable nginx"
+      ]
+    }
+  ]
+} 
