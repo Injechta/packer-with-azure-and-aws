@@ -71,7 +71,7 @@ Le fichier `image.json` est utilisé pour définir la configuration pour créer 
 
 Le fichier `index.html` est une page web simple qui fournit des informations sur les ressources DevOps et des définitions pour des outils comme Packer et Azure Key Vault. Il inclut des liens vers des ressources utiles et des descriptions pour aider les visiteurs à comprendre ces technologies.
 
-## Gestion des Credentials avec le fichier credentials.json
+## Gestion des Credentials avec le fichier `credentials.json`
 
 Pour sécuriser les informations d'identification Azure, un fichier séparé nommé `credentials.json` est utilisé. Ce fichier contient les détails nécessaires pour l'authentification Azure et est référencé dans `image.json`.
 
