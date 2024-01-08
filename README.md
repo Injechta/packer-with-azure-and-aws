@@ -79,7 +79,7 @@ Pour construire l'image avec Packer, assurez-vous d'être dans le répertoire de
 sudo packer build image.json
 ```
 
-Cette commande déclenchera le processus de construction de l'image dans Azure en utilisant la configuration spécifiée dans `image.json` .
+Cette commande déclenchera le processus de construction de l'image dans Azure en utilisant la configuration spécifiée dans `image.json`.
 
 Une fois la construction de l'image terminée, elle sera stockée dans le groupe de ressources spécifié dans votre fichier `image.json`, sous la section "managed_image_resource_group_name". Cela assure une organisation adéquate et une gestion facile de votre image personnalisée dans Azure. Elle est désormais prête à être utilisée pour déployer des machines virtuelles, que ce soit via Terraform ou d'autres outils de gestion d'infrastructures.
 
