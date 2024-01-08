@@ -54,7 +54,7 @@ Le fichier `image.json` est utilisé pour définir la configuration pour créer 
 
 ### Builders
 - **Type**: `azure-arm` indique que le builder Azure Resource Manager est utilisé.
-- **Credentials**: Utilise les informations d'identification Azure (`client_id`, `client_secret`, `subscription_id`, `tenant_id`) pour authentifier et autoriser les opérations dans Azure.
+- **Credentials**: Référence les informations d'identification Azure (client_id, client_secret, subscription_id, tenant_id) qui sont spécifiées dans le fichier `credentials.json`, pour authentifier et autoriser les opérations dans Azure.
 - **Resource Group**: Utilise `build_resource_group_name` et `managed_image_resource_group_name` pour spécifier le groupe de ressources où l'image sera construite et stockée (`b3-gr3`).
 - **Image Configuration**: Définit les spécifications de l'image de base (éditeur, offre, SKU) pour Ubuntu 22.04 LTS.
 - **Tags**: Tags Azure pour catégoriser la ressource créée.
@@ -71,19 +71,26 @@ Le fichier `image.json` est utilisé pour définir la configuration pour créer 
 
 Le fichier `index.html` est une page web simple qui fournit des informations sur les ressources DevOps et des définitions pour des outils comme Packer et Azure Key Vault. Il inclut des liens vers des ressources utiles et des descriptions pour aider les visiteurs à comprendre ces technologies.
 
+## Gestion des Credentials avec le fichier credentials.json
+
+Pour sécuriser les informations d'identification Azure, un fichier séparé nommé `credentials.json` est utilisé. Ce fichier contient les détails nécessaires pour l'authentification Azure et est référencé dans `image.json`.
+
+
+***Important : Ne jamais versionner `credentials.json` dans un dépôt Git, surtout s'il est public. Ajoutez `credentials.json` à votre fichier `.gitignore` pour prévenir son inclusion accidentelle.***
+
 ## Construction de l'Image avec Packer
 
 Pour construire l'image avec Packer, assurez-vous d'être dans le répertoire de travail où se trouve votre fichier `image.json` . Exécutez ensuite la commande suivante :
 
 ```shell
-sudo packer build image.json
+sudo packer build -var-file=credentials.json image.json
 ```
 
 Cette commande déclenchera le processus de construction de l'image dans Azure en utilisant la configuration spécifiée dans `image.json`.
 
 Une fois la construction de l'image terminée, elle sera stockée dans le groupe de ressources spécifié dans votre fichier `image.json`, sous la section `managed_image_resource_group_name`. Cela assure une organisation adéquate et une gestion facile de votre image personnalisée dans Azure. Elle est désormais prête à être utilisée pour déployer des machines virtuelles, que ce soit via Terraform ou d'autres outils de gestion d'infrastructures.
 
-La page web contenue dans cette image personnalisée, définie dans le fichier "index.html", est conçue pour être accessible via un navigateur après le déploiement de la machine virtuelle dans Azure. La configuration Terraform pour déployer cette machine virtuelle et rendre la page web accessible est décrite dans la section suivante.
+La page web contenue dans cette image personnalisée, définie dans le fichier `index.html`, est conçue pour être accessible via un navigateur après le déploiement de la machine virtuelle dans Azure. La configuration Terraform pour déployer cette machine virtuelle et rendre la page web accessible est décrite dans la section suivante.
 
 
 

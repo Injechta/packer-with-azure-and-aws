@@ -31,3 +31,6 @@ terraform.rc
 
 # Fichiers spécifiques aux systèmes Mac
 .DS_Store
+
+# Fichier de credentials Packer
+credentials.json

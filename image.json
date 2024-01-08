@@ -1,10 +1,10 @@
 {
   "builders": [{
     "type": "azure-arm",
-    "client_id": "fa4e2627-3584-4332-8f64-544806dde1b8",
-    "client_secret": "h088Q~4xCc3zV0dq3a~DCIK5hEE8E0ofywTZscnh",
-    "subscription_id": "c56aea2c-50de-4adc-9673-6a8008892c21",
-    "tenant_id": "16763265-1998-4c96-826e-c04162b1e041",
+    "client_id": "{{user `client_id`}}",
+    "client_secret": "{{user `client_secret`}}",
+    "subscription_id": "{{user `subscription_id`}}",
+    "tenant_id": "{{user `tenant_id`}}",
     "build_resource_group_name": "b3-gr3",
     "managed_image_resource_group_name": "b3-gr3",
     "managed_image_name": "b3-gr3_linux_image",
