@@ -81,7 +81,7 @@ sudo packer build image.json
 
 Cette commande déclenchera le processus de construction de l'image dans Azure en utilisant la configuration spécifiée dans `image.json`.
 
-Une fois la construction de l'image terminée, elle sera stockée dans le groupe de ressources spécifié dans votre fichier `image.json`, sous la section "managed_image_resource_group_name". Cela assure une organisation adéquate et une gestion facile de votre image personnalisée dans Azure. Elle est désormais prête à être utilisée pour déployer des machines virtuelles, que ce soit via Terraform ou d'autres outils de gestion d'infrastructures.
+Une fois la construction de l'image terminée, elle sera stockée dans le groupe de ressources spécifié dans votre fichier `image.json`, sous la section `managed_image_resource_group_name`. Cela assure une organisation adéquate et une gestion facile de votre image personnalisée dans Azure. Elle est désormais prête à être utilisée pour déployer des machines virtuelles, que ce soit via Terraform ou d'autres outils de gestion d'infrastructures.
 
 La page web contenue dans cette image personnalisée, définie dans le fichier "index.html", est conçue pour être accessible via un navigateur après le déploiement de la machine virtuelle dans Azure. La configuration Terraform pour déployer cette machine virtuelle et rendre la page web accessible est décrite dans la section suivante.
 
