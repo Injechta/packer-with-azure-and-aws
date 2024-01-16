@@ -34,3 +34,10 @@ terraform.rc
 
 # Fichier de credentials Packer
 credentials.json
+
+# Exclude the contents inside the ssh folder
+aws/terraform/ssh/*
+!aws/terraform/ssh/.gitkeep
+
+# Exclude technocorp public key
+aws/technocorp.pub
